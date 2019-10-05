@@ -1,32 +1,182 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <title>ダイヤをホニャが査定するお</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    /*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: .05rem solid #fff;
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  background-color: #333;
+}
+
+body {
+  display: -ms-flexbox;
+  display: flex;
+  color: #fff;
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+
+.cover-container {
+  max-width: 42em;
+}
+
+
+/*
+ * Header
+ */
+.masthead {
+  margin-bottom: 1rem;
+}
+
+.masthead-brand {
+  margin-bottom: 0;
+}
+
+.nav-masthead .nav-link {
+  padding: .25rem 0;
+  font-weight: 700;
+  color: rgba(255, 255, 255, .5);
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: rgba(255, 255, 255, .25);
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav-masthead .active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+@media (min-width: 48em) {
+  .masthead-brand {
+    float: left;
+  }
+  .nav-masthead {
+    float: right;
+  }
+}
+
+
+/*
+ * Cover
+ */
+.cover {
+  padding: 0 1.5rem;
+}
+.cover .btn-lg {
+  padding: .75rem 1.25rem;
+  font-weight: 700;
+}
+
+
+/*
+ * Footer
+ */
+.mastfoot {
+  color: rgba(255, 255, 255, .5);
+}
+
+    </style>
 </head>
-<body class="main">
 
-<div align="center" class="heading">
-    <h1>ダイヤモンドの買取値段を「ほにゃ」が査定</h1>
-</div>
-
-
-<div align="center">
-    <form method="post" action="/result">
-        <table id="form">
-            <tr><td>カラット</td></tr>
-            <tr><td><input type="text" name="ct"></td></tr>
-            <tr><td>カラー</td></tr>
-            <tr><td><input type="text" name="color"></td></tr>
-            <tr><td>クラリティ</td></tr>
-            <tr><td><input type="text" name="clarity"></td></tr>
-            <tr><td>カット</td></tr>
-            <tr><td><input type="text" name="cut"></td></tr>
-            
-            <tr><td><input type="submit" value="Go!"></td></tr>
-        </table>
-    </form>
-</div>
-
+<body class="text-center">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="masthead">
+        <div class="inner">
+          <h3 class="masthead-brand">AYATO</h3>
+          
+        </div>
+      </header>
+      <img class="img-fluid rounded mb-3 d-block mx-auto" width=400 src="/static/IMG_3839.JPG" alt="うんこ">
+      <main role="main" class="inner cover">
+        <h2 class="cover-heading mb-2">あなたのダイヤモンドを査定するよ</h2>
+        <p class="lead">ダイヤモンド査定アプリ「AYATO」は数千の取引価格を基に学習されたAIアプリです。</p>
+          
+        <form method="POST" action="/result">
+          <div class="form-group mx-sm-5 pb-2 pt-2">
+            <label for="exampleFormControlTextarea1">カラット</label>
+            <input type="text" name="ct" class="form-control" id="exampleFormControlTextarea1" placeholder="0～0.50の半角数字で入力してください" required>
+          </div>
+          <div class="form-group mx-sm-5 pb-2">
+            <label for="exampleFormControlSelect1">カラーグレード</label>
+            <select name="color" class="form-control" id="exampleFormControlSelect1">
+              <option>D</option>
+              <option>E</option>
+              <option>F</option>
+              <option>G</option>
+              <option>H</option>
+              <option>I</option>
+              <option>J</option>
+              <option>K</option>
+              <option>L</option>
+            </select>
+          </div>
+          <div class="form-group mx-sm-5 pb-2">
+            <label for="exampleFormControlSelect1">クラリティグレード</label>
+            <select name="clarity" class="form-control" id="exampleFormControlSelect1">
+              <option>VVS1</option>
+              <option>VVS2</option>
+              <option>VS1</option>
+              <option>VS2</option>
+              <option>SI1</option>
+              <option>SI2</option>
+              <option>I1</option>
+            </select>
+          </div>
+          <div class="form-group mx-sm-5 pb-2">
+            <label for="exampleFormControlSelect1">カットグレード</label>
+            <select name="cut" class="form-control" id="exampleFormControlSelect1">
+              <option>EX</option>
+              <option>VG</option>
+              <option>G</option>
+              <option>FAIR</option>
+              <option>POOR</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary mb-5" data-toggle="button" aria-pressed="false" autocomplete="off">
+            査定する
+          </button>
+        </form>
+      </main>
+    
+    </div>
 </body>
 </html>

@@ -76,13 +76,14 @@ def result():
     param_color =request.form['color']
     param_clarity =request.form['clarity']
     param_cut = request.form['cut']
+    param =(param_ct, param_color, param_clarity, param_cut)
 
     model_Ridge = joblib.load("./data/model_Ridge.pkl")
     DP = diamond_pred(param_ct,param_color, param_clarity, param_cut)
     pred_out = model_Ridge.predict(DP)
-    result = '{0:.0f}'.format(pred_out[0]*10000)
+    result = '{0:.0f}'.format(pred_out[0]*7000)
     
-    return render_template('result.html',result=result)
+    return render_template('result.html',result=result, param=param)
 
 
 if __name__ == '__main__':
